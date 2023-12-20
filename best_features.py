@@ -101,7 +101,3 @@ class BestFeatures(object):
 		for key, val in self.get_feature_importance().items():
 			vector[key] = val
 		return np.array(vector) if is_np else vector
-
-
-
-
