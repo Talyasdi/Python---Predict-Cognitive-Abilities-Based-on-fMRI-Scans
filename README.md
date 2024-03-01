@@ -12,13 +12,6 @@ This repository contains code for predicting Raven scores from brain fMRI scans.
 3. **normalizer.py**: This file includes classes for data normalization. The normalization methods provided are Standard Scaler, Min-Max Normalizer, Z-Score Normalizer, and Non-Normalizer.
 
 ## Running the Code
-
-### Preparing the Environment
-Before running the code, ensure you have the necessary dependencies installed. You can install them using the following command:
-```bash
-pip install -r requirements.txt
-```
-
 ### Running the Prediction
 To run the prediction, execute the following command for example:
 ```bash
