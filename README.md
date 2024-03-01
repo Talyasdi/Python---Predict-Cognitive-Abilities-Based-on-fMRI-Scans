@@ -1,62 +1,45 @@
-# final_project
-final project in Ido Tavor's lab,
-moderator: Maya Kadushin
-
-# Raven Score Prediction Model
+# README for Brain Scans and Raven Scores Prediction
+Final project in Ido Tavor's lab
 
 ## Introduction
+This repository contains code for predicting Raven scores from brain fMRI scans. The prediction is performed using various regression models, including Random Forest, Linear Regression, Ridge Regression, and Elastic Net. Additionally, different feature selection methods are employed, such as Principal Component Analysis (PCA), Unsupervised Feature Selection (US_FS), and Supervised Feature Selection (S_FS).
 
-This is a Python script for predicting Raven scores from brain fMRI scans using various regression methods and feature selection techniques.
+## Files
+1. **best_features.py**: This file defines a class `BestFeatures` responsible for tracking and calculating the best features based on the explained variance and maximum features.
 
-## Usage
+2. **model.py**: The `model.py` file contains the main logic for running the prediction models. It supports different regression models and feature selection methods. The code is modular and allows for easy extension with additional models.
 
-To run the script, use the following command:
+3. **normalizer.py**: This file includes classes for data normalization. The normalization methods provided are Standard Scaler, Min-Max Normalizer, Z-Score Normalizer, and Non-Normalizer.
 
+## Running the Code
+
+### Preparing the Environment
+Before running the code, ensure you have the necessary dependencies installed. You can install them using the following command:
 ```bash
-python3.10 model.py [options]
-Options
---bootstrap: Specify the number of bootstrap iterations. If set to a value different from 0, the program will run the given number of times with permutation in the Raven scores.
+pip install -r requirements.txt
+```
 
---regression: Choose the regression method for prediction. Available options are:
+### Running the Prediction
+To run the prediction, execute the following command:
+```bash
+python model.py --bootstrap 0 --regression RF --featureselection pca --verbose
+```
+- `--bootstrap`: Number of bootstrap rounds. Set to 0 for a regular run.
+- `--regression`: Specify the regression model (RF, L, R, EN, all).
+- `--featureselection`: Choose feature selection method (pca, unsupervised, supervised, all).
+- `--verbose`: Enable verbose mode for detailed output.
 
-RF: Random Forest
-L: Linear Regression
-R: Ridge Regression
-EN: Elastic Net
-all: Use all available regression methods
+## Output
+The code generates output files containing the predicted scores and feature importance values. Output files are saved in the project directory.
 
---featureselection or -fs: Choose the feature selection method. Available options are:
+- Feature Importance files: These files contain the importance of each feature after each round.
+- Model Outcome file: Contains the predicted scores for each subject using different regression models and feature selection methods.
 
-PCA: Principal Component Analysis
-UNSUPERVISED: Unsupervised Feature Selection
-SUPERVISED: Supervised Feature Selection
-all: Use all available feature selection methods
-
---verbose or -v: Enable verbose mode to display detailed information during execution.
-
-Example Usage
-Here are some examples of how to use the script:
-
-bash
-# Run the program with Random Forest regression and PCA feature selection
-python3.10 model.py --regression RF --featureselection PCA
-
-# Run the program with Linear Regression, enabling verbose mode
-python3.10 model.py --regression L --verbose
-
-# Run the program with all regression methods and supervised feature selection
-python model.py --regression all --featureselection SUPERVISED
-# Run the program with Random Forest regression and PCA feature selection
-python3.10 model.py --regression RF --featureselection PCA
-
-# Run the program with Linear Regression, enabling verbose mode
-python3.10 model.py --regression L --verbose
-
-# Run the program with all regression methods and supervised feature selection
-python3.10 model.py --regression all --featureselection SUPERVISED
+## Conclusion
+This code provides a flexible framework for predicting Raven scores from brain fMRI scans. Experiment with different configurations to find the best-performing model for your specific dataset.
 
 ## Notice!
-this code requires python3.10 or a newer version. 
+This code requires python3.10 or a newer version. 
 
 
 
