@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 
 ### Running the Prediction
-To run the prediction, execute the following command:
+To run the prediction, execute the following command for example:
 ```bash
 python model.py --bootstrap 0 --regression RF --featureselection pca --verbose
 ```
