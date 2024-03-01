@@ -1,4 +1,4 @@
-# README for Brain Scans and Raven Scores Prediction
+# Predict Cognitive Abilities Based on fMRI Scans README
 Final project in Ido Tavor's lab
 
 ## Introduction
